@@ -1,4 +1,5 @@
 // my first program in C++
+// demonstrates using the standard namespace explicitlly 
 #include <iostream>
 
 int main() {
