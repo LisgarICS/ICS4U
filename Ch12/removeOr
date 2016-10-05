@@ -1,0 +1,37 @@
+/*****************************************************************************
+ *	Name:     Mr. Creelman                                                   *
+ *	Course:   ICS4U                                                          *  
+ *	Date:     October                                                        * 
+ *	                                                                         * 
+ *	Purpose:  Change all "or" in a string to "our" to make it Canadian eh?   *
+ *	                                                                         *
+ *	Usage:   Enter the string you want to change                             *
+ *			 Input "Yor Neighbor                                             *
+ *			 Output "Your Neighbour                                          *
+ *	                                                                         *
+ *	Revision History:                                                        *  
+ *	                                                                         *
+ *	Known Issues:  None                                                      *
+ *	                                                                         *  
+ *****************************************************************************/
+#include <iostream>
+#include <apstring.h>
+#include <apstring.cpp>
+
+using namespace std;
+
+int main() {
+	apstring s1;
+	
+	// getline will get a sentence with spaces in it. 		
+	getline(cin, s1);
+ 
+ 	// loop while you find "or" in string
+ 	while (s1.find("or") != npos) {
+ 		int n = s1.find("or");  // inefficent, but okay 
+ 		
+ 		s1 = s1.substr(0, n) + "our" + s1.substr(n+2, s1.length());  // add 3,skip 2
+	}
+	cout << s1 << endl;
+}
+	
