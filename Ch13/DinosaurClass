@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+class Dinosaur {
+	private:
+		int teeth;
+		float height;
+	
+	public:
+		// constructors
+		Dinosaur() { teeth = 0; height = 0;}
+		Dinosaur(int t, float h) {teeth = t; height =h;}
+		// methods for roaring
+		void roar() { cout << "Roar Roar" << endl ;}
+		
+		// assessores and mutators
+		int getTeeth() { return teeth;}
+		void setTeeth(int t) { teeth = t;}
+		int getHeight() { return height;}
+		void setHeight(int h) { height = h;}
+		
+		~Dinosaur() { cout << "Destroy Dinosaur " << endl;}
+};
+
+int main() {
+	Dinosaur TRex;
+	Dinosaur Barney(32, 56.15);
+	
+	TRex.setTeeth(45);
+	cout << "TRex has " << TRex.getTeeth() << " Teeth " << endl;
+	Barney.roar();
+}
