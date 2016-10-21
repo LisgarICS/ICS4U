@@ -1,34 +1,79 @@
+/*****************************************************************************
+ *	Name:      Mr. Creelman                                                  *
+ *	Course:    ICS4U                                                         *  
+ *	Date:      October 21st, 2016	                                         * 
+ *	                                                                         * 
+ *	Purpose:   Demonstrate a simple class in one file                        *
+ *	                                                                         *
+ *	Usage:                                                                   *
+ *	                                                                         *
+ *	Revision History:                                                        *  
+ *	                                                                         *
+ *	Known Issues:                                                            *
+ *	                                                                         *  
+ *****************************************************************************/
 #include <iostream>
 #include <cstdlib>
+#include <apstring.h>
+#include <apstring.cpp>
 
 using namespace std;
 
 class Dinosaur {
 	private:
+		apstring name;
 		int teeth;
 		float height;
-	
+			
 	public:
 		// constructors
-		Dinosaur() { teeth = 0; height = 0;}
-		Dinosaur(int t, float h) {teeth = t; height =h;}
+		Dinosaur() { name = "Yet to be named"; teeth = 0; height = 0;}
+		Dinosaur(apstring n) { name = n; teeth = 0; height = 0;}
+		Dinosaur(apstring n,  int t, float h) {name = n;teeth = t; height =h;}
 		// methods for roaring
-		void roar() { cout << "Roar Roar" << endl ;}
+		void roar(); 	// prototype
 		
-		// assessores and mutators
+		// assessores and mutators (inline function)
 		int getTeeth() { return teeth;}
 		void setTeeth(int t) { teeth = t;}
 		int getHeight() { return height;}
 		void setHeight(int h) { height = h;}
-		
-		~Dinosaur() { cout << "Destroy Dinosaur " << endl;}
+		apstring getName();
+		void setName(apstring n);
+		~Dinosaur(); 
 };
 
+
+// Dinosaur methods
+// set / get name
+void Dinosaur::setName(apstring n) {
+	name = n;
+}
+
+apstring Dinosaur::getName() {
+	return name;
+}
+
+void Dinosaur::roar() { 
+	cout << "Roar Roar" << endl ;
+};
+
+// Destructor 
+Dinosaur::~Dinosaur() {
+	cout << "Destroy Dinosaur " << endl;
+}
+
+// main program
 int main() {
+	// instantiate some Dinosaurs using the various constructors
 	Dinosaur TRex;
-	Dinosaur Barney(32, 56.15);
+	Dinosaur Aladar("Aladar");
+	Dinosaur Barney("Barney", 32, 56.15);
+	
 	
 	TRex.setTeeth(45);
 	cout << "TRex has " << TRex.getTeeth() << " Teeth " << endl;
 	Barney.roar();
+	TRex.setName("Rexy");
+	cout << Aladar.getName() << endl;
 }
