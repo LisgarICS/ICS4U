@@ -1,4 +1,7 @@
 // Murakami.h  
+#ifndef MURAKAMI_H
+#define MURAKAMI_H
+
 #include <iostream>
 #include <apstring.h>
 
@@ -15,3 +18,4 @@ class Murakami {
 		void print();	
 		~Murakami() {std::cout << "book out of slope" << std::endl;}
 };
+#endif
