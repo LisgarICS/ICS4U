@@ -7,7 +7,7 @@
  *	                                                                         *
  *	Usage:                                                                   *
  *	                                                                         *
- *	Revision History:                                                        *  
+ *	Revision History:  More Comments added October 28, 2016                  *  
  *	                                                                         *
  *	Known Issues:                                                            *
  *	                                                                         *  
@@ -19,7 +19,11 @@
 
 using namespace std;
 
+/******************************************************
+ * class definition would normally be in Dinosaur.h   * 
+/******************************************************/
 class Dinosaur {
+	// private data, accessible only to class function 
 	private:
 		apstring name;
 		int teeth;
@@ -27,9 +31,13 @@ class Dinosaur {
 			
 	public:
 		// constructors
-		Dinosaur() { name = "Yet to be named"; teeth = 0; height = 0;}
+		Dinosaur() { name = "Yet to be named"; 
+					 teeth = 0; 
+					 height = 0;}
 		Dinosaur(apstring n) { name = n; teeth = 0; height = 0;}
-		Dinosaur(apstring n,  int t, float h) {name = n;teeth = t; height =h;}
+		Dinosaur(apstring n,  int t, float h) {
+				name = n;teeth = t; height =h;}
+				
 		// methods for roaring
 		void roar(); 	// prototype
 		
@@ -38,14 +46,18 @@ class Dinosaur {
 		void setTeeth(int t) { teeth = t;}
 		int getHeight() { return height;}
 		void setHeight(int h) { height = h;}
+		// accessor and mutator not inline
 		apstring getName();
 		void setName(apstring n);
+		
+		// destructor
 		~Dinosaur(); 
 };
 
+/******************************************************
+ * These function would normally be in Dinosaur.cpp   * 
+/******************************************************/
 
-// Dinosaur methods
-// set / get name
 void Dinosaur::setName(apstring n) {
 	name = n;
 }
@@ -55,25 +67,36 @@ apstring Dinosaur::getName() {
 }
 
 void Dinosaur::roar() { 
-	cout << "Roar Roar" << endl ;
+	cout << "Me " << name << " Roar Roar" << endl ;
+	// note that you could use getName() instead of name, but also
+	// note normally use the private data directly. 
 };
 
 // Destructor 
 Dinosaur::~Dinosaur() {
-	cout << "Destroy Dinosaur " << endl;
+	// Normally you only need to free memory you explicitly allocated
+	// print statement is just to show it is called automatically. 
+	cout << endl << "Destroy Dinosaur " << name << endl;
+	// No "new" statements in class, so no need to "delete"
 }
 
-// main program
+/**************************************************
+ * main.cpp                                       * 
+/**************************************************/
+
 int main() {
 	// instantiate some Dinosaurs using the various constructors
 	Dinosaur TRex;
 	Dinosaur Aladar("Aladar");
 	Dinosaur Barney("Barney", 32, 56.15);
 	
-	
+	// set private data with set function
 	TRex.setTeeth(45);
+	// access private data with get function
 	cout << "TRex has " << TRex.getTeeth() << " Teeth " << endl;
 	Barney.roar();
 	TRex.setName("Rexy");
-	cout << Aladar.getName() << endl;
+	cout  << "My name is " << Aladar.getName() << endl;
+	TRex.roar();
 }
+
