@@ -61,7 +61,8 @@ void removeMin(Node* &head, Node* &tail) {
 	// special case last item
 	if (minPtr == tail) {
 		tail = tail->prev;
-		minPtr->prev->next = minPtr->next;
+		tail->next = NULL;
+		delete minPtr;
 		return;
 	}
 	
