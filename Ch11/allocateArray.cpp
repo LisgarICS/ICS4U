@@ -32,7 +32,7 @@ int main() {
 	}
 	// initialize array
 	for (int i=0; i<n; i++) 
-		data[n] = i;
+		data[i] = i;
 		
 	// free memory allocated. Note syntax. 	
 	delete [] data;	
