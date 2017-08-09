@@ -1,0 +1,8 @@
+Installing Allegro 5:
+Download allegro-mingw-gcc6.2.0-x86-dynamic-5.2.2.zip 
+Unzip the folder and copy the allegro folder to your D:\ drive   (c: drive at home.
+You if the Allegro folder extracts into any other name, be sure it is named allegro
+Inside the allegro folder, there will be 3 folders. lib, include, and bin. 
+The include folder includes all the header files for allegro.
+The lib folder contains all the object files for your linker to link into your executable. 
+The bin folder contains the dlls required to run allegro
