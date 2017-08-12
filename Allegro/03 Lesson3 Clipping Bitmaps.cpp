@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 
 	//Release the bitmap data and exit with no erros
    	al_destroy_bitmap(rainbow);
-	al_destroy_bitmap(clippedRainbow);
+	 // al_destroy_bitmap(clippedRainbow); not needed since clipped image share memory
 	al_destroy_display(display);
 	return 0;
 }
