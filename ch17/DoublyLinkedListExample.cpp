@@ -7,8 +7,8 @@ struct Node {
 	Node *prev;
 };
 
-Node *head = NULL;
-Node *tail = NULL;
+Node *head = nullptr;
+Node *tail = nullptr;
 
 void printListForward(Node *);
 void printListBackward(Node *);
@@ -19,7 +19,7 @@ void push(int num) {
 	Node *newNode = new Node;
 	newNode->n = num;
 	newNode->next = head;
-	newNode->prev = NULL;
+	newNode->prev = nullptr;
 	
 	if (head)
 		head->prev = newNode;
@@ -33,7 +33,7 @@ void enqueue(int num) {
 	// create a new node
 	Node *newNode = new Node;
 	newNode->n = num;
-	newNode->next = NULL;
+	newNode->next = nullptr;
 	newNode->prev = tail;
 	if (tail)
 		tail->next = newNode;
@@ -54,8 +54,8 @@ void deleteNum(int num) {
 	// delete last item from list
 	if (head == tail) {
 		delete t;
-		head = NULL;
-		tail = NULL;
+		head = nullptr;
+		tail = nullptr;
 		return;
 	}
 	if (t == head)  { // pop	
