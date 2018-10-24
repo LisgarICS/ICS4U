@@ -48,7 +48,11 @@ int main(int argc, char *argv[]) {
 	// Create a bitmap and load the image.
 	ALLEGRO_BITMAP *ball = nullptr; //Declare a ALLEGRO_BITMAP called ball
 	ball = al_load_bitmap("picture.bmp"); // Load our picture
-
+	if (!ball) {
+       		al_show_native_message_box(display, "Error", "Error",
+    			"picture.bmp not found", nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+    		return -1;;
+	}
 	// Now we will make the pink portion of the picture transparent
 	al_convert_mask_to_alpha(ball, PINK);
 
